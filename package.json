@@ -1,4 +1,3 @@
-
 {
   "name": "project-2-starter-code",
   "version": "1.0.0",
@@ -7,6 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "postinstall": "gulp build"
+  },
+  "engines": {
+    "node": "7.10.0"
   },
   "author": "Mike Hayden <mickyginger@gmail.com> (https://github.com/mickyginger)",
   "license": "ISC",
@@ -30,4 +32,3 @@
     "express": "^4.15.3"
   }
 }
-/*important! is script object when heroku finishes installing your code needs to know what to do to star thte server start will run the file and pick  up in the server post install run atutomatically after packages finishe downloading*/
