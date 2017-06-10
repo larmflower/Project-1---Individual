@@ -1,0 +1,10 @@
+<h1>index</h1>
+<% artworks.forEach((artwork) => { %>
+  <div class="large-4 columns">
+    <a href="/artworks/<%= artwork.id %>">
+      <img class="thumbnail" src="<%= artwork.image %>" alt="<%= artwork.name %>">
+      <h2><%= artwork.title %></h2>
+      <h5><%= artwork.username %></h5>
+    </a>
+  </div>
+<% }) %>

@@ -1,7 +1,8 @@
-body {
-  background: rgb(170,194,208);
-  font-family: 'Amatic SC', cursive;
-  color: #fcfbf9;
-  text-align: center;
-  font-size: 40px;
-}
+h1 {
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+  }

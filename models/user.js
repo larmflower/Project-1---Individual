@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  name: String,
-  username: String,
+  name: { type: String, required: true },
+  username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
 // lifecycle hook -- mongoose middleware
 userSchema.pre('save', function hashPassword(next) {
   if(!this.isModified('password')) return next();
-
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
   next();
 });

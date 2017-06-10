@@ -1,0 +1,16 @@
+
+<div class="large-12 columns">
+  <img src="<%= artwork.image %>" alt="<%= artwork.title %>">
+  <h2><%= artwork.title %></h2>
+</div>
+
+<% if(locals.isAuthenticated && artwork.belongsTo(user)) { %>
+  <a href="/artworks/<%= artwork.id %>/edit">Edit</a>
+  <form method="POST" action="/artworks/<%= artwork.id %>">
+    <input type="hidden" name="_methodOverride" value="DELETE">
+    <button>Delete</button>
+  </form>
+<% } %>
+<%# will only work if createdBy property is populated already%>
+
+<%# ----------------------------------------------------will put comments here...%>
