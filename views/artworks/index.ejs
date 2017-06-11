@@ -1,10 +1,11 @@
-<h1>index</h1>
 <% artworks.forEach((artwork) => { %>
-  <div class="large-4 columns">
+  <div class="card">
     <a href="/artworks/<%= artwork.id %>">
-      <img class="thumbnail" src="<%= artwork.image %>" alt="<%= artwork.name %>">
-      <h2><%= artwork.title %></h2>
-      <h5><%= artwork.username %></h5>
+      <img class="card-img-top" src="<%= artwork.image %>" alt="<%= artwork.name %>">
+      <div class="card-block">
+      <p><%= artwork.title %></p><br>
+      <p><%= artwork.user %></p><br>
     </a>
+  </div>
   </div>
 <% }) %>

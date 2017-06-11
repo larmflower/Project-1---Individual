@@ -20,7 +20,7 @@ function createRoute(req, res, next) {
   req.body.createdBy = req.user;
   Artwork
   .create(req.body)
-  .then(() => res.redirect('/artworks'))
+  .then(() => res.redirect('/artworks/index'))
   .catch((err) => {
     // -------------------------------------------------need req.params.id below?
     if(err.name === 'ValidationError') return res.badRequest(`/artworks/edit`, err.toString());

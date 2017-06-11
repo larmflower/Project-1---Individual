@@ -5,7 +5,7 @@ const sessions = require('../controllers/sessions');
 // const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 const artworks = require('../controllers/artworks');
-const users = require('../controllers/user');
+const users = require('../controllers/users');
 
 
 // A home route
@@ -27,7 +27,7 @@ router.route('/artworks/:id')
 router.route('/artworks/:id/edit')
 .get(secureRoute, artworks.edit);
 
-router.route('/registrations/new')
+router.route('/register')
 .get(registrations.new)
 .post(registrations.create);
 

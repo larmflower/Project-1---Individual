@@ -1,14 +1,19 @@
 <h1>Login</h1>
 
-<form method="POST" action="/login">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" required>
+<div class="container">
+  <form method="POST" action="/login">
+    <div class="form-group row has-success">
+      <label class="col-sm-2 col-form-label" for="email">Email</label>
+      <div class="col-sm-10">
+      <input class="form-control form-control-success" type="text" name="email" id="email" required>
+    </div>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-  </div>
-
-  <button class="button">Login</button>
-</form>
+    <div class="form-group row has-success">
+      <label class="col-sm-2 col-form-label" for="password">Password</label>
+      <div class="col-sm-10">
+      <input class="form-control form-control-success" type="password" name="password" id="password" required>
+    </div>
+    </div>
+    <button class="btn btn-success">Login</button>
+  </form>
+</div>
