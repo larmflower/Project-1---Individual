@@ -1,16 +1,15 @@
-
-<div class="large-12 columns">
-  <img src="<%= artwork.image %>" alt="<%= artwork.title %>">
-  <h2><%= artwork.title %></h2>
+<div class="columns">
+  <div class="column is-two-thirds">
+      <img src="<%= post.imageSRC %>">
+  </div>
+  <div class="column is-one-third">
+    <h2 class="subtitle"><a href="/users/<%= post.createdBy.id %>"><%= post.createdBy.username %></a></h2>
+    <p><%= post.caption %></p>
+    <hr/>
+    <form method="POST" action="/posts/<%= post.id %>">
+      <a href="/posts/<%= post.id %>/edit" class="button">Edit Post</a>
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="button is-danger">Delete</button>
+    </form>
+  </div>
 </div>
-
-<% if(locals.isAuthenticated && artwork.belongsTo(user)) { %>
-  <a href="/artworks/<%= artwork.id %>/edit">Edit</a>
-  <form method="POST" action="/artworks/<%= artwork.id %>">
-    <input type="hidden" name="_methodOverride" value="DELETE">
-    <button>Delete</button>
-  </form>
-<% } %>
-<%# will only work if createdBy property is populated already%>
-
-<%# ----------------------------------------------------will put comments here...%>

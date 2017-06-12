@@ -1,1 +1,21 @@
 <h1>New Artworks page</h1>
+<div class="columns">
+  <div class="column">
+    <h1 class="title">New</h1>
+
+    <form method="POST" action="/posts" enctype="multipart/form-data">
+      <div class="field">
+        <label class="label" for="image">Image</label>
+        <label class="button is-primary" for="image">Choose file</label>
+        <input type="file" name="image" id="image" hidden>
+      </div>
+      <div class="field">
+        <label class="label" for="caption">Caption</label>
+        <p class="control">
+          <input class="input" type="text" name="caption" id="caption">
+        </p>
+      </div>
+      <button class="button">Create</button>
+    </form>
+  </div>
+</div>

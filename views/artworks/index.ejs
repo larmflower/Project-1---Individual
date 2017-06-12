@@ -1,11 +1,22 @@
-<% artworks.forEach((artwork) => { %>
-  <div class="card">
-    <a href="/artworks/<%= artwork.id %>">
-      <img class="card-img-top" src="<%= artwork.image %>" alt="<%= artwork.name %>">
-      <div class="card-block">
-      <p><%= artwork.title %></p><br>
-      <p><%= artwork.user %></p><br>
-    </a>
+<div class="columns">
+  <div class="column">
+    <% for (let i = 0; i < artworks.length; i++) { %>
+      <% if (i === 0 || artworks[i].createdBy !== artworks[i-1].createdBy) { %>
+        <h1><%= artworks[i].createdBy.username %></h1>
+      <% } %>
+      <div class="columns">
+        <div class="column">
+          <a href="/artworks/<%= artworks[i].id %>">
+            <img src="<%= artworks[i].imageSRC %>">
+          </a>
+        </div>
+        <div class="column">
+          <h2 class="subtitle"><a href="/users/<%= artworks[i].createdBy.id %>"><%= artworks[i].createdBy.username %></a></h2>
+          <p><%= artworks[i].caption %></p>
+          <hr/>
+          <a href="/artworks/<%= artworks[i].id %>" class="button">View Post</a>
+        </div>
+      </div>
+    <% } %>
   </div>
-  </div>
-<% }) %>
+</div>

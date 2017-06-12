@@ -1,1 +1,16 @@
 <h1> EDIT </h1>
+<div class="columns">
+  <div class="column">
+    <h1 class="title">Edit</h1>
+
+    <form method="POST" action="/posts/<%= post.id %>">
+      <div class="field">
+        <label class="label" for="caption">Caption</label>
+        <p class="control">
+          <input class="input" type="text" name="caption" id="caption" value="<%= post.caption %>">
+        </p>
+      </div>
+      <button class="button">Update</button>
+    </form>
+  </div>
+</div>

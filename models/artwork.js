@@ -1,34 +1,22 @@
-// THESE ARE THE SCHEMAS FOR ARTWORK
-// ? mongoose needed?
 const mongoose = require('mongoose');
+const s3 = require('../lib/s3');
 
 const artworkSchema = new mongoose.Schema({
-  title: String,
-  image: { type: String, required: true },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User'}
-  // ----------------------------------does created by above need required? ? ? 
-  // comments: [ commentSchema ]
+  image: { type: String },
+  caption: { type: String },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
-// this is a helper method for edit and delete buttons to show on page
-artworkSchema.methods.belongsTo = function artworkBelongsTo(user) {
-  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-  return user.id === this.createdBy.toString();
-};
+artworkSchema
+  .virtual('imageSRC')
+  .get(function getImageSRC() {
+    if(!this.image) return null;
+    return `https://s3-eu-west-1.amazonaws.com/${process.env.AWS_BUCKET_NAME}/${this.image}`;
+  });
 
+artworkSchema.pre('remove', function removeImage(next) {
+  if(!this.image) return next();
+  s3.deleteObject({ Key: this.image }, next);
+});
 
-
-module.exports = mongoose.model('Artwork', artworkSchema);
-
-// -----------------------------------------------MAY ADD COMMENTS LATER
-// const commentSchema = new mongoose.Schema({
-//   content: {type: String, required: true },
-//   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-// }, {
-//   timestamps: true
-// });
-
-// commentSchema.methods.belongsTo = function commentBelongsTo(user) {
-//   if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-//   return user.id === this.createdBy.toString();
-// };
+module.exports = mongoose.model('Post', artworkSchema);
