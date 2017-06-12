@@ -1,9 +1,11 @@
 // SEE CLASSWORK EXPRESS AUTH W04D04
 // CONTAINS CONTROLLER FUNCTIONS
 const User = require('../models/user');
+const oauth = require('../config/oauth');
+
 
 function sessionsNew(req, res) {
-  res.render('sessions/new');
+  res.render('sessions/new', { oauth });
 }
 
 function sessionsCreate(req, res, next) {
