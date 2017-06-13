@@ -7,7 +7,10 @@ function indexRoute(req, res, next) {
     .find()
     .populate('createdBy')
     .exec()
-    .then((artworks) => res.render('artworks/index', { artworks }))
+    .then((artworks) => {
+      console.log(artworks);
+      res.render('artworks/index', { artworks });
+    })
     .catch(next);
 }
 
@@ -40,6 +43,18 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function historyRoute(req, res, next) {
+  Artwork
+    .findById(req.params.id)
+    .populate('createdBy')
+    .exec()
+    .then(artwork => {
+      if(!artwork) return res.notFound();
+      return res.render('artworks/history', { artwork, keywords: req.query.keywords.split(',') });
+    })
+    .catch(next);
+}
+
 function editRoute(req, res, next) {
   Artwork
     .findById(req.params.id)
@@ -62,6 +77,10 @@ function updateRoute(req, res, next) {
       for(const field in req.body) {
         artwork[field] = req.body[field];
       }
+
+      req.body.newKeyword.split(',').forEach((keyword) => {
+        if (keyword !== '') artwork.keywords.push(keyword);
+      });
 
       return artwork.save();
     })
@@ -89,6 +108,7 @@ module.exports = {
   new: newRoute,
   create: createRoute,
   show: showRoute,
+  history: historyRoute,
   edit: editRoute,
   update: updateRoute,
   delete: deleteRoute

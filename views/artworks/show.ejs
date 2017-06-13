@@ -1,15 +1,19 @@
-<div class="columns">
-  <div class="column is-two-thirds">
-      <img src="<%= post.imageSRC %>">
+<div class="container">
+  <div>
+      <img src="<%= artwork.imageSRC %>">
   </div>
-  <div class="column is-one-third">
-    <h2 class="subtitle"><a href="/users/<%= post.createdBy.id %>"><%= post.createdBy.username %></a></h2>
-    <p><%= post.caption %></p>
+  <div>
+    <h2><a href="/users/<%= artwork.createdBy.id %>" data-id="<%= artwork.id %>"><%= artwork.createdBy.username %></a></h2>
+    <p><%= artwork.caption %></p>
+    <% artwork.keywords.forEach((keyword) => { %>
+      <input type="checkbox" name="keywords" value="<%= keyword %>"><%= keyword %>
+    <% }) %>
+    <a href="/artworks/<%= artwork.id %>/history" class="history">Get related artworks</a>
     <hr/>
-    <form method="POST" action="/posts/<%= post.id %>">
-      <a href="/posts/<%= post.id %>/edit" class="button">Edit Post</a>
+    <form method="POST" action="/artworks/<%= artwork.id %>">
+      <a href="/artworks/<%= artwork.id %>/edit" class="btn btn-success">Edit Post</a>
       <input type="hidden" name="_method" value="DELETE">
-      <button class="button is-danger">Delete</button>
+      <button class="btn btn-success">Delete</button>
     </form>
   </div>
 </div>

@@ -1,21 +1,15 @@
-<h1>New Artworks page</h1>
-<div class="columns">
-  <div class="column">
-    <h1 class="title">New</h1>
-
-    <form method="POST" action="/posts" enctype="multipart/form-data">
-      <div class="field">
-        <label class="label" for="image">Image</label>
-        <label class="button is-primary" for="image">Choose file</label>
-        <input type="file" name="image" id="image" hidden>
-      </div>
-      <div class="field">
-        <label class="label" for="caption">Caption</label>
-        <p class="control">
-          <input class="input" type="text" name="caption" id="caption">
-        </p>
-      </div>
-      <button class="button">Create</button>
-    </form>
-  </div>
+<h1>n e w  &hearts; a r t w o r k</h1>
+<div class="container">
+  <form method="POST" action="/artworks" enctype="multipart/form-data">
+    <div>
+      <%# <label class="label" for="image">Image</label>%>
+      <label class="btn btn-success" for="image">u p l o a d :</label>
+      <input type="file" name="image" id="image"><span class="file-path"></span>
+    </div>
+    <div class="form-group has-success">
+      <label class="form-control-label" for="caption">c a p t i o n :</label>
+      <input class="form-control form-control-success" type="text" name="caption" id="caption" placeholder="p l e a s e   c a p t i o n   y o u r   w o r k ...">
+    </div>
+    <button class="btn btn-success">c r e a t e :</a>
+  </form>
 </div>

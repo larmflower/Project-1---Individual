@@ -1,2 +1,13 @@
-
-<%# DO I NEED THIS.............???%>
+<div>
+  <div>
+    <% if (Object.keys(locals.messages).length !== 0) { %>
+      <div class="notification is-success">
+        <% for(const type in messages) { %>
+          <div>
+            <h5><%= messages[type] %></h5>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</div>

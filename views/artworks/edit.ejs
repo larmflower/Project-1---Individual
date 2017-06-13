@@ -1,16 +1,25 @@
-<h1> EDIT </h1>
-<div class="columns">
-  <div class="column">
-    <h1 class="title">Edit</h1>
+<h1 class="pariah"> e d i t y o u r p o s t </h1>
 
-    <form method="POST" action="/posts/<%= post.id %>">
-      <div class="field">
-        <label class="label" for="caption">Caption</label>
-        <p class="control">
-          <input class="input" type="text" name="caption" id="caption" value="<%= post.caption %>">
-        </p>
-      </div>
-      <button class="button">Update</button>
+<div class="container">
+
+  <form method="POST" action="/artworks/<%= artwork.id %>">
+    <div class="field">
+      <input type="hidden" name="_method" value="PUT">
+
+      <p>
+        <input class="input form-control" type="text" name="caption" id="caption" placeholder="w r i t e a c a p t i o n . . . " value="<%= artwork.caption %>">
+      </p>
+
+      <p>
+        <label for="newKeyword">Add a keyword <small>Comma seperated values</small></label>
+        <input class="input form-control" type="text" name="newKeyword" id="newKeyword">
+      </p>
+
+      <% artwork.keywords.forEach((keyword) => { %>
+        <input type="checkbox" name="keywords" value="<%= keyword %>" checked="checked"><%= keyword %>
+      <% }) %>
+
+      <button class="btn btn-secondary">Update</button>
     </form>
+
   </div>
-</div>

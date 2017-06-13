@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>Pariah</title>
-  <% include ./partials/stylesheets.ejs %>
+  <% include ./partials/stylesheets %>
+  <% include ./partials/scripts %>
 </head>
 <body>
   <% include ./partials/navbar %>
-  <%- body %>
-  <% include ./partials/scripts.ejs %>
-</body>
-</html>
+  <main class="container">
+      <%- body %>
+  </body>
+  </html>

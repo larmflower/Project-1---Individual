@@ -6,6 +6,10 @@ const sessions = require('../controllers/sessions');
 const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 const upload = require('../lib/upload');
+const clarifai = require('../lib/clarifai');
+
+// --------------DO I NEED TO REQUIRE CLARIFAI BELOW?---------------
+const Clarifai = require('clarifai');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -19,17 +23,20 @@ router.route('/users/:id/edit')
 
 router.route('/artworks')
   .get(artworks.index)
-  .post(secureRoute, upload.single('image'), artworks.create);
+  .post(secureRoute, upload.single('image'), clarifai.analyseImage, artworks.create);
 
 router.route('/artworks/new')
   .get(secureRoute, artworks.new);
 
 router.route('/artworks/:id')
   .get(artworks.show)
-  .post(upload.single('image'), artworks.update)
+  .put(artworks.update)
   .delete(secureRoute, artworks.delete);
 
-router.route('/posts/:id/edit')
+router.route('/artworks/:id/history')
+  .get(artworks.history);
+
+router.route('/artworks/:id/edit')
   .get(secureRoute, artworks.edit);
 
 router.route('/register')
@@ -48,4 +55,5 @@ router.route('/oauth/github')
 
 router.all('*', (req, res) => res.notFound());
 
-module.exports = router;
+// ----------------DO I NEED TO EXPORT CLARIFAI BELOW ---------------
+module.exports = router, Clarifai;

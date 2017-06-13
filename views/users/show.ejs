@@ -1,2 +1,19 @@
-<%# PAGE TO DISPLAY USER PROFILE AND PORTFOLIO%>
-<h1>Show page with User Profile</h1>
+<h1 class="pariah"><%= user.username %></h1>
+<div class="container">
+  <%# ----------------------------------------BEGIN CAROUSEL%>
+  <% artworks.forEach((artwork) => { %>
+    <div class="card floatLeft" style="width: 20rem;">
+    <a href="/artworks/<%= artwork.id %>"><img class="card-img-top" src="<%= artwork.imageSRC %>"></a>
+    <div class="card-block">
+    <h4 class="card-title"><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h4>
+    </div>
+    </div>
+    <% }); %>
+
+
+    <div>
+      <% if (user.image) { %>
+        <img src="<%= user.imageSRC %>" alt="<%= user.username %>">
+        <% } %>
+      </div>
+    </div>

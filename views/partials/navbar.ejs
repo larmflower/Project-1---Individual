@@ -1,13 +1,19 @@
 <div class="container">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <a class="navbar-brand" href="/">Home</a>
-    <a class="navbar-brand" href="/artworks/index">Artworks</a>
+    <a class="navbar-brand" href="/">p a r i a h </a>
+    <a class="navbar-brand" href="/artworks">a r t w o r k s</a>
+
     <% if(!locals.isAuthenticated) { %>
-      <a class="navbar-brand" href="/register">Register</a>
-      <a class="navbar-brand" href="/login">Login</a>
-      <% } else { %>
-        <a class="navbar-brand" href="/users/show"><%= user.username %></a>
-        <a class="navbar-brand" href="/logout">Logout</a>
-        <% } %>
+      <a class="navbar-brand" href="/register">r e g i s t e r</a>
+      <a class="navbar-brand" href="/login">l o g i n</a>
+    <% } else { %>
+      <a class="navbar-brand" href="/users/<%= user.id %>">p r o f i l e</a>
+      <a class="navbar-brand" href="/artworks/new">n e w </a>
+      <a class="navbar-brand" href="/logout">l o g o u t </a>
+      <form method="POST" action="/users/<%= user.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger btn-sm navbar-brand navbar-right">Delete Account</button>
+      </form>
+    <% } %>
   </nav>
 </div>
