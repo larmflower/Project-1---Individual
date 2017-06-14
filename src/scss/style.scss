@@ -11,26 +11,41 @@ h1 {
 img {
   max-width: 100%;
   max-height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.center {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  .loginButton {
+    color: white;
+
+  }
+  .instagramLogo{
+    height: 33px;
+    width: 35px;
+  }
+
+}
+
 
 .logo {
   height: 200px;
   width: 250px;
   position: absolute;
-  top: -60%;
-  left: 50%;
+  top: -63%;
+  left: 51%;
   transform: translate(-50%, 350%);
   opacity: .2;
-  
 }
+
 .pariah {
   color: rgba(150, 160, 171, 0.6);
   text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
   letter-spacing: 5px;
-}
-
-#image {
-  display: none;
 }
 
 .editAccount {
@@ -59,6 +74,23 @@ img {
   float: left;
 }
 
+.boxShadow{
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    padding: 25px;
+    margin: 8px;
+}
+
+
+.inlineBlock{
+  display: inline-block;
+}
+
+.formatImages {
+  height: 360px;
+  width: auto;
+}
 
 
 #pariah {

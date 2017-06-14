@@ -50,8 +50,8 @@ router.route('/login')
 router.route('/logout')
   .get(sessions.delete);
 
-router.route('/oauth/github')
-  .get(oauth.github);
+router.route('/oauth/instagram')
+  .get(oauth.instagram);
 
 router.all('*', (req, res) => res.notFound());
 

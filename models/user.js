@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  username: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  name: { type: String },
+  username: { type: String },
+  email: { type: String },
+  password: { type: String },
+  instagramId: { type: Number }
 });
 
 
@@ -29,11 +30,15 @@ userSchema
 
 // important here is the next()
 userSchema.pre('validate', function checkPassword(next) {
-  if(this.isModified('password') && this._passwordConfirmation !== this.password){
+  if(!this.password && !this.instagramId) {
+    this.invalidate('password', 'required');
+  }
+  if(this.password && this._passwordConfirmation !== this.password){
     this.invalidate('passwordConfirmation', 'does not match');
   }
   next();
 });
+
 //
 // // compareSync will take inputted password , hash it and compare it , if yes, return true
 userSchema.methods.validatePassword = function

@@ -1,14 +1,19 @@
-<div class="container">
+<div class="container center">
+      <img class="img-fluid max-width:100%; height: auto;" src="<%= artwork.imageSRC %>">
   <div>
-      <img src="<%= artwork.imageSRC %>">
-  </div>
-  <div>
-    <h2><a href="/users/<%= artwork.createdBy.id %>" data-id="<%= artwork.id %>"><%= artwork.createdBy.username %></a></h2>
-    <p><%= artwork.caption %></p>
+    <h2 class="center"><a href="/users/<%= artwork.createdBy.id %>" data-id="<%= artwork.id %>"><%= artwork.createdBy.username %></a></h2>
+    <p class="center"><%= artwork.caption %></p>
     <% artwork.keywords.forEach((keyword) => { %>
+      <div class="center">
       <input type="checkbox" name="keywords" value="<%= keyword %>"><%= keyword %>
+      </div>
     <% }) %>
-    <a href="/artworks/<%= artwork.id %>/history" class="history">Get related artworks</a>
+    <%# ----------------------------GET HISTORY BUTTON BELOW-------------%>
+    <%# <button id="callHarvardButton" class="btn btn-success">Get Inspo</button>%>
+    <div class="center">
+      <a href="/artworks/<%= artwork.id %>/history" class="history">Get related artworks</a>
+    </div>
+
     <hr/>
     <form method="POST" action="/artworks/<%= artwork.id %>">
       <a href="/artworks/<%= artwork.id %>/edit" class="btn btn-success">Edit Post</a>

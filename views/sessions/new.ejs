@@ -1,4 +1,3 @@
-<h1 class="pariah">Login</h1>
 
 <div class="container">
   <form method="POST" action="/login">
@@ -14,7 +13,10 @@
       <input class="form-control form-control-success" type="password" name="password" id="password" required>
     </div>
     </div>
-    <button class="btn btn-success">Login</button>
-      <a href="<%= oauth.github.getLoginURL() %>" class="button is-primary"><span class="icon"><i class="fa fa-github"></i></span><span>Login With Github</span></a>
+    <button class="btn btn-lg loginButton">Login</button>
+    <button class="btn" name="button">
+      <a href="<%= oauth.instagram.getLoginUrl() %>"><img class="instagramLogo" src="http://betseymosby.com/wp-content/uploads/2015/05/Instagram.png" alt="instaLogo"></a>
+    </button>
+
   </form>
 </div>

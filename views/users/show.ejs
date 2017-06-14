@@ -2,7 +2,7 @@
 <div class="container">
   <%# ----------------------------------------BEGIN CAROUSEL%>
   <% artworks.forEach((artwork) => { %>
-    <div class="card floatLeft" style="width: 20rem;">
+    <div class="card floatLeft boxShadow" style="width: 20rem;">
     <a href="/artworks/<%= artwork.id %>"><img class="card-img-top" src="<%= artwork.imageSRC %>"></a>
     <div class="card-block">
     <h4 class="card-title"><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h4>

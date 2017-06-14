@@ -1,24 +1,22 @@
 <div class="container">
-  <div>
-      <h2>History Book</h2>
-      <img src="<%= artwork.imageSRC %>">
-  </div>
-  <div>
+  <h2>History Book</h2>
+  <aside class="">
     <h2><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h2>
-    <p><%= artwork.caption %></p>
-    <ul data-keywords="<%= keywords %>">
+    <img class="card-img-top" src="<%= artwork.imageSRC %>">
+    <div data-keywords="<%= keywords %>">
       <% keywords.forEach((keyword) => { %>
-        <li><%= keyword %></li>
-      <% }) %>
-    </ul>
-    <hr/>
+        <p><%= keyword %></p><br>
+        <% }) %>
+      </div>
+    </aside>
+
+    <div class="text-center">
+
+    </div>
   </div>
-</div>
-<%# --------------------------------------FEATURED IMAGE INFO BOX FROM BOOTY----%>
-<div class="card text-center">
-  <div class="card-block">
-    <h4 class="card-title">Title of Historical Example</h4>
-    <p class="card-text">Some content about the generated piece....</p>
-    <a href="#" class="btn btn-primary">See Next</a>
-  </div>
-</div>
+
+
+  <%# ----------------------------------APPEND HISTORYS HERE FOR NOW%>
+
+
+  <%# --------------------------------------FEATURED IMAGE INFO BOX FROM BOOTY----%>
