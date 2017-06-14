@@ -18,12 +18,14 @@ $(() => {
 
   $checkboxes.on('change', () => {
     queries = [];
+    let url = 'javascript: void(0)';
     const checkedValues = $('input[type=checkbox]:checked');
     checkedValues.each(function(){
       queries.push($(this).val());
     });
     const queryString = queries.join(',');
-    $historyButton.attr('href', `/artworks/${id}/history?keywords=${queryString}`);
+    if (checkedValues.length > 0) url = `/artworks/${id}/history?keywords=${queryString}`;
+    $historyButton.attr('href', url);
   });
 
   // --------------------------------HARNESSING KEYWORDS IN QUERY STRING FOR HARVARD ----
@@ -45,12 +47,12 @@ $(() => {
   }
 
   function appendHistory(record) {
-    console.log(record);
     if(record.primaryimageurl) {
+      const description = record.description ? record.description : '';
       $('.main').append(`
         <img class="boxShadow" src="${record.primaryimageurl}">
-        <div><h3>${record.title}</h3><div>
-        <div><h6>${record.description}</h6></div>`);
+        <div><h3 class="captionText">${record.title}</h3><div>
+        <div><h6>${description}</h6></div>`);
     }
 
       // $('.main').append(`<h3>${record[0].description}</h3>`);

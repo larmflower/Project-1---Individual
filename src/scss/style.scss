@@ -118,6 +118,10 @@ form {
   position: fixed;
 }
 
+a.hover {
+  text-decoration: none;
+}
+
 .floatLeft{
   float: left;
 }
@@ -127,6 +131,15 @@ form {
   text-align: center;
   color: #6f7072;
   margin-bottom: 20px;
+  opacity: .5;
+}
+
+.captionText {
+  font-family: 'Dosis', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #6f7072;
+  margin: 10px;
 }
 
 .boxShadow{
