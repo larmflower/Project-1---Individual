@@ -1,4 +1,4 @@
-<div class="container center">
+<div class="container center formBorder">
       <img class="img-fluid max-width:100%; height: auto;" src="<%= artwork.imageSRC %>">
   <div>
     <h2 class="center"><a href="/users/<%= artwork.createdBy.id %>" data-id="<%= artwork.id %>"><%= artwork.createdBy.username %></a></h2>
@@ -11,7 +11,7 @@
     <%# ----------------------------GET HISTORY BUTTON BELOW-------------%>
     <%# <button id="callHarvardButton" class="btn btn-success">Get Inspo</button>%>
     <div class="center">
-      <a href="/artworks/<%= artwork.id %>/history" class="history">Get related artworks</a>
+      <a href="/artworks/<%= artwork.id %>/history" class="btn btn-primary marginTop history">History Book</a>
     </div>
 
     <hr/>

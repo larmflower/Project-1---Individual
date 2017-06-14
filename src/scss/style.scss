@@ -47,6 +47,10 @@ form {
   max-width: 600px;
 }
 
+.marginBottom {
+  margin-bottom: 20px;
+}
+
 .authorizeButton {
   color: white;
   margin-left: 6px;
@@ -100,6 +104,10 @@ form {
 
 .displayBlock{
   display: block;
+}
+
+.displayInlineBlock{
+  display: inline-block;
 }
 
 .padding {

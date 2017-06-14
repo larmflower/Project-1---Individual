@@ -1,16 +1,17 @@
-  <% artworks.forEach((artwork) => { %>
-    
-    <div class="col-sm-6 col-lg-4 col-xs-1 boxShadow">
-    <div class="card" style="width: 20rem;">
-    <a href="/artworks/<%= artworks.id %>">
-    <img "card-img-top" src="<%= artwork.imageSRC %>">
-    </a>
-    <div class="card-block">
-    <h4 class="card-title"><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h4>
-    <p class="card-text"><%= artwork.caption %></p>
-    <a href="/artworks/<%= artwork.id %>" class="btn btn-success">View Post</a>
-    </div>
-    </div>
-    </div>
+<div class="">
+  <div class="row">
+    <% artworks.forEach((artwork) => { %>
+      <div class="card boxShadow inlineBlock">
+      <a href="/artworks/<%= artworks.id %>">
+      <img class="card-img-top" src="<%= artwork.imageSRC %>">
+      </a>
+      <h4 class="card-title"><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h4>
+      <p class="card-text"><%= artwork.caption %></p>
+      <a href="/artworks/<%= artwork.id %>" class="btn btn-success">View</a>
+      </div>
 
-    <% }) %>
+      <% }) %>
+
+  </div>
+
+</div>
