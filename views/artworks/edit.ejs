@@ -1,25 +1,30 @@
 <h1 class="pariah"> e d i t y o u r p o s t </h1>
 
-<div class="container">
+<div class="container marginTop center formBorder">
 
   <form method="POST" action="/artworks/<%= artwork.id %>">
     <div class="field">
       <input type="hidden" name="_method" value="PUT">
 
       <p>
-        <input class="input form-control" type="text" name="caption" id="caption" placeholder="w r i t e a c a p t i o n . . . " value="<%= artwork.caption %>">
+        <input class="input form-control center" type="text" name="caption" id="caption" placeholder="w r i t e a c a p t i o n . . . " value="<%= artwork.caption %>">
       </p>
 
-      <p>
-        <label for="newKeyword">Add a keyword <small>Comma seperated values</small></label>
+      <p class="padding">
+        <label for="newKeyword">Add a keyword <small><em>Comma seperated values</em></small></label>
         <input class="input form-control" type="text" name="newKeyword" id="newKeyword">
       </p>
 
-      <% artwork.keywords.forEach((keyword) => { %>
-        <input type="checkbox" name="keywords" value="<%= keyword %>" checked="checked"><%= keyword %>
-      <% }) %>
+      <div class="padding">
+        <% artwork.keywords.forEach((keyword) => { %>
+          <input type="checkbox" name="keywords" value="<%= keyword %>" checked="checked"><%= keyword %>
+        <% }) %>
+      </div>
 
-      <button class="btn btn-secondary">Update</button>
+      <div>
+        <button class="btn btn-lg btn-primary">Update</button>
+      </div>
+
     </form>
 
   </div>

@@ -1,10 +1,8 @@
-<h1>n e w  &hearts; a r t w o r k</h1>
-<div class="container">
-  <form method="POST" action="/artworks" enctype="multipart/form-data">
+<div class="container marginTop">
+  <form class="formBorder" method="POST" action="/artworks" enctype="multipart/form-data">
     <div>
-      <%# <label class="label" for="image">Image</label>%>
       <label class="btn btn-success" for="image">u p l o a d :</label>
-      <input type="file" name="image" id="image"><span class="file-path"></span>
+      <input class="invisible" type="file" name="image" id="image"><span class="file-path"></span>
     </div>
     <div class="form-group has-success">
       <label class="form-control-label" for="caption">c a p t i o n :</label>

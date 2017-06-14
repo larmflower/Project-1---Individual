@@ -1,19 +1,24 @@
-<div class="container">
-  <h2>History Book</h2>
-  <aside class="">
-    <h2><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h2>
-    <img class="card-img-top" src="<%= artwork.imageSRC %>">
-    <div data-keywords="<%= keywords %>">
+  <h2 class="historyHeading"><em>looking into the past...</em></h2>
+  <img class="fixed formBorder marginTop" src="<%= artwork.imageSRC %>">
+
+  <div class="row">
+
+    <div class="col-md-8 col-sm-6 ">
+      <div data-keywords="<%= keywords %>">
       <% keywords.forEach((keyword) => { %>
-        <p><%= keyword %></p><br>
+        <h2 class="fixed"><%= keyword %></h2>
         <% }) %>
       </div>
-    </aside>
+    </div>
 
-    <div class="text-center">
+    <div class="col-md-4 col-sm-6 main center">
 
     </div>
+
   </div>
+
+
+
 
 
   <%# ----------------------------------APPEND HISTORYS HERE FOR NOW%>
