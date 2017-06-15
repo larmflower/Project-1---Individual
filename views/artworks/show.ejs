@@ -5,7 +5,7 @@
     <p class="center captionText"><%= artwork.caption %></p>
     <% artwork.keywords.forEach((keyword) => { %>
       <div class="center captionText">
-      <input type="checkbox" name="keywords" value="<%= keyword %>"><%= keyword %>
+      <input class="paddingLeft" type="checkbox" name="keywords" value="<%= keyword %>"><%= keyword %>
       </div>
     <% }) %>
 

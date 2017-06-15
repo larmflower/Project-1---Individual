@@ -16,7 +16,9 @@
 
       <div class="padding">
         <% artwork.keywords.forEach((keyword) => { %>
+          <div class="inlineBlock paddingRight">
           <input type="checkbox" name="keywords" value="<%= keyword %>" checked="checked"><%= keyword %>
+          </div>
         <% }) %>
       </div>
 

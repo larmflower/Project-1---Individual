@@ -1,21 +1,21 @@
-  <h2 class="historyHeading">h i s t o r y   b o o k</h2>
-  <img class="fixed formBorder marginTop" src="<%= artwork.imageSRC %>">
 
-  <div class="row">
-
-    <div class="col-md-8 col-sm-6 ">
+<div class="row">
+  <div class="col-sm-6 history-main">
+    <h2 class="historyHeading">h i s t o r y   b o o k</h2>
+    <img class="formBorder" src="<%= artwork.imageSRC %>">
       <div data-keywords="<%= keywords %>">
-      <% keywords.forEach((keyword) => { %>
-        <h3 class="captionText floatLeft fixed"><%= keyword %></h3><br>
-        <% }) %>
+        <h3 class="captionText">
+          <% keywords.forEach((keyword) => { %>
+            <%= keyword %>
+          <% }) %>
+        </h3>
       </div>
-    </div>
-
-    <div class="col-md-4 col-sm-6 main center">
-
-    </div>
+  </div>
+  <div class="col-sm-4 col-sm-offset-2 main center">
 
   </div>
+</div>
+
 
 
 

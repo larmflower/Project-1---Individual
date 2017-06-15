@@ -3,6 +3,8 @@ const config = require('../config/oauth');
 const User = require('../models/user');
 
 function instagram(req, res, next) {
+  console.log(req.body);
+  
   return rp({
     method: 'POST',
     url: config.instagram.accessTokenURL,
@@ -16,6 +18,7 @@ function instagram(req, res, next) {
     json: true
   })
   .then((token) => {
+    console.log('TOKEN from Insta', token);
     return User
     .findOne({ $or: [{ email: token.user.email }, { instagramId: token.user.id }] })
     .then((user) => {

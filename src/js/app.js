@@ -47,10 +47,11 @@ $(() => {
   }
 
   function appendHistory(record) {
+    console.log(record);
     if(record.primaryimageurl) {
       const description = record.description ? record.description : '';
       $('.main').append(`
-        <img class="boxShadow" src="${record.primaryimageurl}">
+        <a href="${record.primaryimageurl}" target="_blank"><img class="boxShadow" src="${record.primaryimageurl}"></a>
         <div><h3 class="captionText">${record.title}</h3><div>
         <div><h6>${description}</h6></div>`);
     }
@@ -62,6 +63,7 @@ $(() => {
 
 
   $historyButton.on('click', callHarvard);
+
 
 
 });

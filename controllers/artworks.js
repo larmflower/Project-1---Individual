@@ -26,7 +26,7 @@ function createRoute(req, res, next) {
     .create(req.body)
     .then(() => res.redirect('/artworks'))
     .catch((err) => {
-      if(err.name === 'ValidationError') return res.badRequest(`/artworks/${req.params.id}/edit`, err.toString());
+      if(err.name === 'ValidationError') return res.badRequest(`/artworks/new`, err.toString());
       next(err);
     });
 }

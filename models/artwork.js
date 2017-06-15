@@ -21,4 +21,6 @@ artworkSchema.pre('remove', function removeImage(next) {
   s3.deleteObject({ Key: this.image }, next);
 });
 
+
+
 module.exports = mongoose.model('Artwork', artworkSchema);

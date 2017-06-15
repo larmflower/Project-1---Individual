@@ -6,7 +6,7 @@
       <img class="card-img-top" src="<%= artwork.imageSRC %>">
       </a>
       <h4 class="card-title"><a href="/users/<%= artwork.createdBy.id %>"><%= artwork.createdBy.username %></a></h4>
-      <p class="card-text"><%= artwork.caption %></p>
+      <p class="card-text captionText"><%= artwork.caption %></p>
       <a href="/artworks/<%= artwork.id %>" class="btn btn-success">View</a>
       </div>
 

@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
   instagramId: { type: Number }
 });
 
+userSchema
+  .virtual('passwordConfirmation')
+  .set(function setPasswordConfirmation(passwordConfirmation){
+    this._passwordConfirmation = passwordConfirmation;
+  });
+//
 
 // lifecycle hook -- mongoose middleware
 userSchema.pre('save', function hashPassword(next) {
@@ -19,17 +25,9 @@ userSchema.pre('save', function hashPassword(next) {
   next();
 });
 
-
-userSchema
-  .virtual('passwordConfirmation')
-  .set(function setPasswordConfirmation(passwordConfirmation){
-    this._passwordConfirmation = passwordConfirmation;
-  });
-//
-//
-
 // important here is the next()
 userSchema.pre('validate', function checkPassword(next) {
+  console.log('pre validate hook');
   if(!this.password && !this.instagramId) {
     this.invalidate('password', 'required');
   }
@@ -39,11 +37,15 @@ userSchema.pre('validate', function checkPassword(next) {
   next();
 });
 
-//
 // // compareSync will take inputted password , hash it and compare it , if yes, return true
 userSchema.methods.validatePassword = function
 validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
+
+userSchema.pre('remove', function removeUserPosts(next) {
+  this.model('Artwork').remove({ createdBy: this.id }, next);
+});
+
 
 module.exports = mongoose.model('User', userSchema);

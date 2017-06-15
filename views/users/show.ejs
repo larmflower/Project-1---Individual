@@ -1,3 +1,7 @@
+
+
+
+
 <h1 class="pariah"><%= user.username %></h1>
 <div class="container">
   <%# ----------------------------------------BEGIN CAROUSEL%>
@@ -12,3 +16,11 @@
 
   </div>
 </div>
+
+
+<footer>
+  <form method="POST" action="/users/<%= user.id %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <button class="btn btn-danger btn-sm center delete">Delete Account</button>
+  </form>
+</footer>
