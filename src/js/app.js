@@ -36,7 +36,7 @@ $(() => {
   if (keywordsToSearch) callHarvard();
 
   function callHarvard() {
-    $.get(`http://api.harvardartmuseums.org/object?size=10&apikey=dd5a1d30-4d12-11e7-96f2-b50c7eba56ee&keyword=${keywordsToSearch}`)
+    $.get(`https://api.harvardartmuseums.org/object?size=10&apikey=dd5a1d30-4d12-11e7-96f2-b50c7eba56ee&keyword=${keywordsToSearch}`)
     .done((historys) => {
       $.each(historys.records, (i, record) => {
         appendHistory(record);
