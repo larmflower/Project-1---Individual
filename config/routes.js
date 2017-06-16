@@ -4,6 +4,7 @@ const users = require('../controllers/users');
 const artworks = require('../controllers/artworks');
 const sessions = require('../controllers/sessions');
 const oauth = require('../controllers/oauth');
+const harvard = require('../controllers/harvard');
 const secureRoute = require('../lib/secureRoute');
 const upload = require('../lib/upload');
 const clarifai = require('../lib/clarifai');
@@ -52,6 +53,9 @@ router.route('/logout')
 
 router.route('/oauth/instagram')
   .get(oauth.instagram);
+
+router.route('/harvard')
+  .get(harvard.proxy);
 
 router.all('*', (req, res) => res.notFound());
 
